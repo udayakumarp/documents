@@ -4,4 +4,5 @@
 
 
 Often in production setups, Druid is used for powering business solutions which can help them drive business decisions using the slice-n-dice dashboards or reports. Often times, its also used for sensorial 
+
 ## Challenges 
