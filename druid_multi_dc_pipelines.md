@@ -8,6 +8,15 @@ Often in production setups, Druid is used for powering business solutions which 
  - Hadoop Batch Ingestions
  - Native Batch Ingestions 
 
-The [Native Batch Ingestions](https://druid.apache.org/docs/latest/ingestion/native_tasks.html) is relatively a newer concept from Apache Druid and is still being worked upon to get its maturity to be used in production pipelines. But the pre-dominant Batch ingestions are being done using [Hadoop Batch Ingestions](https://druid.apache.org/docs/latest/ingestion/hadoop.html)
+The [Native Batch Ingestions](https://druid.apache.org/docs/latest/ingestion/native_tasks.html) is relatively a newer concept from Apache Druid and is still being worked upon to get its maturity to be used in production pipelines. But the pre-dominant Batch ingestions are being done using [Hadoop Batch Ingestions](https://druid.apache.org/docs/latest/ingestion/hadoop.html). 
+
+With Hadoop Batch Ingestions, we have inherent problems, especially while dealing with multiple data centers which act as a source data center for providing data to Druid and while on the Druid end, it is a Active-Active setup serving the users. In this particular setup, there is extreme importance given to the high availability of the system. At any point in time, the system has to be available 24x7 and available across the globe. In this particular there are 2 or more hadoop data centers which act as a primary data centers which feeds data into Druid and also there are 2 or more Druid data centers which reads asynchronously and simultaneously at the same time from the primary Hadoop centers.
+
+### System constraints and requirements 
+In a massive production setup @ scale serving millions of users at the same time, the system has some of these functional and non-functional requirements which it has to be adhere to.
+
+ - Active-Active Setup 
+ - 95% of queries has to be served sub-second
+
 
 ## Challenges 
