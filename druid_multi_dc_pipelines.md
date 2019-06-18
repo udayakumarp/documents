@@ -17,10 +17,14 @@ In a massive production setup @ scale serving millions of users at the same time
 
  - Active-Active Setup : Queries fired to both (or all Druid DCs) based on the Geo-IP
  - 95% of queries has to be served sub-second
- - Very high concurrent workload
+ - Highly concurrent workload
  - Billions of rows to access and report on
  - Data consistency is key : One primary HDP DC produces data which gets loaded to all Active Druid DCs
  - High availability and 24x7 uptime
 
+
+## Current Setup
+
+<img src="images/Druid_Overall_End-State-Architecture_Public_Uploading.png">
 
 ## Challenges 
